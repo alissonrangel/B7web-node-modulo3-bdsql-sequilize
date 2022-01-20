@@ -30,7 +30,7 @@
 
     <ul>
       {{#users}}
-        <li>{{name}} - Idade: {{age}}</li>
+        <li>{{name}} - Idade: {{age}} - {{firstLetterOfName}}</li>
         <a href="/adicionar?id={{id}}" style="display: inline-block; padding: 10px; border: 1px solid blue" >[ + ]</a>
         <a href="/usuario/{{id}}/diminuir" style="padding: 10px; border: 1px solid orange">[ - ]</a>
         <a href="/usuario/{{id}}/excluir" style="padding: 10px; border: 1px solid red">excluir</a>

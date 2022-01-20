@@ -80,8 +80,40 @@ export const home = async(req: Request, res: Response)=>{
 
 
 
-  
+  //Métodos Finder
+  let user = await User.findOne({
+    where:{
+      id: 1
+    }
+  });
+  if (user) {
+    console.log("Usuário", user);
+  } else {
+    console.log("Usuário não encontrado");
+  }
 
+  let user2 = await User.findByPk(2);
+  if (user2) {
+    console.log("Usuário 2", user2);
+  } else {
+    console.log("Usuário 2 não encontrado");
+  }
+
+  let [user3, created] = await User.findOrCreate({
+    where:{
+      name: "Alisson"
+    },
+    defaults: {
+      // name: "Alisson",
+      age: "20"
+    }
+  });
+  if (created) {
+    console.log("Usuário 3 criado com sucesso", user3);
+  } else {
+    console.log("Achamos o usuário", user3);
+  }
+  
 
   let users = await User.findAll({
     //attributes: ["name","age"]
