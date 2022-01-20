@@ -1,0 +1,68 @@
+{{>partials/header}}
+
+    {{ #showWelcome }}
+      Opa, tudo bem, {{user}}?
+    {{/showWelcome}}
+    {{#showOld}}
+      Como vai a vida?
+    {{/showOld}}
+    {{^showOld}}
+      Beleza?
+    {{/showOld}}
+    <hr/>
+
+    <ul>
+      {{#products}}
+        <li>{{title}} - R$ {{price}}</li>
+      {{/products}}
+      {{^products}}
+        Não há produtos!!!
+      {{/products}}
+    </ul>
+    <ul>
+      {{#frasesDoDia}}
+        <li>{{.}}</li>
+      {{/frasesDoDia}}
+      {{^frasesDoDia}}
+        Não há frases!!!
+      {{/frasesDoDia}}
+    </ul>
+
+    <ul>
+      {{#users}}
+        <li>{{name}} - Idade: {{age}}</li>
+        <a href="/adicionar?id={{id}}" style="display: inline-block; padding: 10px; border: 1px solid blue" >[ + ]</a>
+        <a href="/usuario/{{id}}/diminuir" style="padding: 10px; border: 1px solid orange">[ - ]</a>
+        <a href="/usuario/{{id}}/excluir" style="padding: 10px; border: 1px solid red">excluir</a>
+        <form method="POST" action="/updateusuario">
+          <input type="hidden" required name="id" value="{{id}}" />
+          <br/>
+          <input type="text" required name="name" value="{{name}}" placeholder="Digite seu nome" />  
+          <br />
+          <input type="number" name="age" value="{{age}}" placeholder="Digite sua idade" />
+          <br/>                    
+          <input type="submit" value="update usuário" />
+        </form>
+      {{/users}}
+    </ul>
+
+    <form method="GET">
+      <input type="number" step="0.01" name="valor" placeholder="Digite o valor do produto que vc quer" />
+      <input type="submit" value="enviar" />
+     </form>
+
+     <h1>Qual o seu nome e idade?</h1>
+     <fieldset>
+       <legend>Novo usuário</legend>
+      <form method="POST" action="/novousuario">
+        <input type="text" required name="nome" placeholder="Digite seu nome" /> 
+        <br/>   
+        <br/>   
+        <input type="number" name="idade" placeholder="Digite sua idade" />
+        <br/>
+        <br/>   
+        <input type="submit" value="enviar" />
+      </form>
+    </fieldset>
+  </body>
+</html>

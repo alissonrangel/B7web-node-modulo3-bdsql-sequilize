@@ -1,0 +1,23 @@
+{{>partials/header}}
+    Nome
+
+    {{#nome}}
+      {{nome}} com {{idade}}
+    {{/nome}}
+
+    <hr/>
+    <h1>Lista de usuários:</h1>
+    {{#users}}
+      {{name}} com {{age}}
+      <br/>
+    {{/users}}
+
+
+   <!-- <h1>Qual o seu nome?</h1>
+   <form method="POST" action="/novousuario">
+    <input type="text" name="nome" placeholder="Digite seu nome" />    
+    <input type="number" name="idade" placeholder="Digite sua idade" />
+    <input type="submit" value="enviar" />
+   </form> -->
+  </body>
+</html>

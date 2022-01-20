@@ -1,0 +1,18 @@
+{{>partials/header}}   
+    {{#idade}}
+      Você tem {{idade}} anos!
+    {{/idade}}
+
+   <h1>Qual o ano de seu nascimento?</h1>
+   <form method="GET">
+    <input type="number" name="ano" placeholder="Digite o ano de seu nascimento" />
+    <input type="submit" value="enviar" />
+   </form>
+
+   <h1>Qual o ano de seu nascimento via post?</h1>
+   <form method="POST" action="idade-resultado">
+    <input type="number" name="ano" placeholder="Digite o ano de seu nascimento" />
+    <input type="submit" value="enviar" />
+   </form>
+  </body>
+</html>
